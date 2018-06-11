@@ -1,0 +1,151 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: Tahoma;
+  font-size: 100%;
+  box-sizing: border-box;
+}
+.unselect{
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+#main_wrapper{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient( rgb(74,189,172) 5%, rgb(44,159,142) 35% );
+}
+.main-text{
+  font-size: 90%;
+  margin: 10%;
+  font-family: tahoma;
+  color: white;
+}
+
+.taskbar-container{
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 4%;
+  height: 100%;
+  border-radius: ;
+  border: ;
+}
+.taskbar{
+  position: relative;
+  left: 0%;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, rgb(247, 183, 51), rgb(267, 203, 70), rgb(247, 183, 51));
+}
+.icon{
+  position: relative;
+  border-radius: 11%;
+  height: 7%;
+  width: 90%;
+  left: 5%;
+  cursor: pointer;
+  transition: background .3s;
+
+}
+.icon:hover{
+  background: rgb(200, 0, 0);
+}
+.icon-clicked{
+  background: rgb(252, 74, 26);
+
+}
+.i1{
+  top: 5%;
+}
+.i2{
+  top: 6%;
+}
+.i3{
+  top: 7%;
+}
+.icon-image{
+  position: relative;
+  width: 80%;
+  left: 10%;
+  height: 80%;
+  top: 10%;
+  opacity: 1;
+}
+
+.programs{
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  height: 80%;
+  width: 70%;
+  box-shadow: 1px 1px 21px black;
+  background: white;
+  display: none;
+}
+.prg2{
+  top: 6%;
+}
+.prg3{
+  top: 7%;
+}
+.topbar{
+  position: relative;
+  top: 0%;
+  height: 22px;
+  color: white;
+  background: #008080;
+  font-family: Tahoma;
+}
+.panelButton{
+  position: relative;
+  top: 10%;
+  margin-left: 10px;
+  margin-top: 0%;
+  width: 18px;
+  height: 80%;
+  float: left;
+  font-family: sans-serif;
+  font-size: 88%;
+  border-radius: 100%;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+.close{
+  background: rgb(255, 0, 0);
+}
+.maximize{
+  background: rgb(100,200,100);
+
+}
+.minimize{
+  background: rgb(80,0,200);
+  margin-right: 10px;
+}
+/*
+color scheme
+168 151 157 dusty
+129 141 165 lavendar
+161 170 177 overcast
+221 221 221 paper
+*/
+
+#spinner
+{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(Images/Loading.gif) 50% 50% no-repeat #ede9df;
+}

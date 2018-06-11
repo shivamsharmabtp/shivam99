@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <img src="images/loading.gif" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; ">
+  <head>
+    <meta charset="utf-8">
+    <title>oslemons</title>
+    <link rel="stylesheet" href="/style.css">
+    
+  </head>
+  <body>
+    
+    <divs id="main_wrapper">
+      <span class="name main-text unselect"></span>
+
+    <div class="taskbar-container unselect">
+      <div class="taskbar">
+        <div class="icon i1" data-tab="1">
+          <img class="icon-image" src="images/start2.png" alt="" >
+        </div>
+        <div class="icon i2" data-tab="2">
+          <img class="icon-image" src="images/gold.png" alt="" >
+        </div>
+        <div class="icon i3" data-tab="3">
+          <img class="icon-image" src="images/settiings2.png" alt="" >
+        </div>
+      </div>
+    </div>
+
+    <!-- program 1 strart -->
+    <div class="programs prg1" id="prg1">
+      <div class="topbar unselect" onmousedown='mydragg.startMoving(prg1,"main_wrapper",event);' onmouseup='mydragg.stopMoving("");'>
+        <div class="panelButton close" data-tab="1">
+          x
+        </div>
+        <div class="panelButton maximize">
+          &#9723;
+        </div>
+        <div class="panelButton minimize">
+          -
+        </div>
+        Accounts
+      </div>
+      <div class="account">
+
+      </div>
+    </div>
+    <!-- program 1 end -->
+
+    <!-- program 2 strart -->
+    <div class="programs prg2" id="prg2" >
+      <div class="topbar unselect" onmousedown='mydragg.startMoving(prg2,"main_wrapper",event);' onmouseup='mydragg.stopMoving("");'>
+        <div class="panelButton close" data-tab="2">
+          x
+        </div>
+        <div class="panelButton maximize">
+          &#9723;
+        </div>
+        <div class="panelButton minimize">
+          -
+        </div>
+        Gold Mine
+      </div>
+      <div class="goldmine">
+
+      </div>
+    </div>
+    <!-- program 2 end -->
+
+    <!-- program 3 strart -->
+    <div class="programs prg3" id="prg3">
+      <div class="topbar unselect" onmousedown='mydragg.startMoving(prg3,"main_wrapper",event);' onmouseup='mydragg.stopMoving("");'>
+          <div class="panelButton close" data-tab="3">
+          x
+        </div>
+        <div class="panelButton maximize">
+          &#9723;
+        </div>
+        <div class="panelButton minimize">
+          -
+        </div>
+        Settings
+      </div>
+      settings will come here.
+    </div>
+    <!-- program 3 end -->
+
+  </div>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/myscript.js"></script>
+  
+  </body>
+</html>

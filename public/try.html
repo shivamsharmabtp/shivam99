@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+			#main_wrapper {
+				position:absolute;
+        background-color: blue;
+				}
+      #program{
+          position: absolute;
+          top: 40px;
+          left: 50px;
+          background-color: green;
+
+      }
+      .handle{
+        position: relative;
+        height: 50px;
+        width: 50px;
+        top: 10px;
+        left: 10px;
+        background: red;
+      }
+        </style>
+        <script>
+        var mydragg = function(){
+            return {
+                move : function(divid,xpos,ypos){
+                    divid.style.left = xpos + 'px';
+                    divid.style.top = ypos + 'px';
+                },
+                startMoving : function(divid,main_wrapper,evt){
+                    evt = evt || window.event;
+                    var posX = evt.clientX,
+                        posY = evt.clientY,
+  			                eWi = parseInt(divid.style.width),
+  			                eHe = parseInt(divid.style.height),
+  			                cWi = parseInt(document.getElementById(main_wrapper).style.width),
+  			                cHe = parseInt(document.getElementById(main_wrapper).style.height);
+                        console.log('container width : ' + cWi + ' , element width : ' + eWi);
+                      if (divid.style.top) {
+                        var divTop = divid.style.top;
+                      }else {
+                        var divTop = '40px';
+                      }
+                      if (divid.style.left) {
+                        var divLeft = divid.style.left;
+                      }else {
+                        var divLeft = '50px';
+                      }
+                        divTop = divTop.replace('px','');
+                        divLeft = divLeft.replace('px','');
+
+                    var diffX = posX - divLeft,
+                        diffY = posY - divTop;
+                    document.onmousemove = function(evt){
+                        //console.log('divLeft : ' + divLeft + ' , divTop : ' + divTop);
+                          evt = evt || window.event;
+                          var posX = evt.clientX,
+                              posY = evt.clientY,
+                              aX = posX - diffX,
+                              aY = posY - diffY;
+                					if (aX < 0) {aX = 0; document.onmousemove = function(){}; console.log('out of container');}
+                					if (aY < 0) {aY = 0; document.onmousemove = function(){}; console.log('out of container');}
+                					if (aX + eWi > cWi) aX = cWi - eWi;
+                					if (aY + eHe > cHe) aY = cHe -eHe;
+                          mydragg.move(divid,aX,aY);
+                    }
+                },
+                stopMoving : function(){
+                    document.onmousemove = function(){}
+                },
+            }
+        }();
+        </script>
+    </head>
+    <body>
+		<div id='main_wrapper' style="width: 900px;height: 500px;top:50px;left:50px;">
+			<div id="program" style="width: 200px;height: 100px; ">
+        <div class="handle" onmousedown='mydragg.startMoving(program,"main_wrapper",event);' onmouseup='mydragg.stopMoving();' >
+
+        </div>
+			</div>
+		</div>
+    </body>
+</html>

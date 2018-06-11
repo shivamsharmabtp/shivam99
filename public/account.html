@@ -1,0 +1,276 @@
+<style media="screen">
+  .account_wrapper{
+
+  }
+  .profilePic{
+    width: 13%;
+  }
+  .profilePicImg{
+    border: 4px ridge;
+  }
+  .name1{
+    text-align: center;
+    width: 13%;
+  }
+  .tabs{
+    position: absolute;
+    top: 26px;
+    left: 20%;
+    height: 9%;
+    width: 45%;
+    font-size: 80%;
+    overflow-y: scroll;
+    overflow: auto;
+    min-height: 29px;
+  }
+  .tabButton{
+    position: relative;
+    float: left;
+    margin: 4px;
+    padding: 6px;
+    font-size: 100%;
+    background: rgb(252, 74, 26);
+    color: white;
+    cursor: pointer;
+    transition: background .3s;
+    width: 22%;
+    text-align: center;
+  }
+  .tabButton:hover{
+    background: rgba(200,0,0,1);
+  }
+  .clicked{
+    background: rgba(200,0,0,1);
+  }
+  .container1{
+    border: 1px solid;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 45%;
+    height: 80%;
+    padding: 10px;
+    overflow: scroll;
+    overflow: auto;
+  }
+  .container2{
+
+  }
+  .tabDisplayHeading{
+    color: rgb(130,0,0);
+    text-decoration: underline;
+  }
+  .searchBox{
+    position: absolute;
+    top: 6%;
+    right: 3%;
+  }
+  .field{
+    font-weight: bold;
+  }
+  .fields{
+    font-size: 92%;
+  }
+  .fieldSpan{
+    cursor: default;
+    padding: 2%;
+  }
+  .fieldSpan:hover{
+    background: rgb(220,220,220);
+  }
+  .edit{
+    font-size: 80%;
+    color: rgb(0,0,202);
+    cursor: pointer;
+    display: none;
+  }
+  .edit:hover{
+    text-decoration: underline;
+  }
+
+</style>
+
+<div class="account_wrapper">
+
+<div class="profilePic">
+  <img src="" alt="" width="100%" class="profilePicImg">
+</div>
+
+<div class="name1"></div>
+
+<div class="tabs">
+  <div class="tabButton gi clicked">
+    General Info
+  </div>
+  <div class="tabButton sk">
+    Skills
+  </div>
+  <div class="tabButton ii">
+    Projects
+  </div>
+  <div class="tabButton lo">
+    Log Out
+  </div>
+</div>
+
+<div class="container1">
+  <div class="container2 gic">
+    <span class="tabDisplayHeading">General Information</span><br><br>
+    <div class="fields">
+      <div class="fieldSpan"><span class="field">Age : </span> <span class="userAge"></span></div>
+      <div class="fieldSpan"><span class="field">College : </span> <span class="currentSchool"></span></div>
+      <div class="fieldSpan" onmouseout="$('.editFos').css('display','none')" onmouseover="$('.editFos').css('display','inline')">
+        <span class="field" title="Department">Field of study : </span>
+        <span class="fos"></span>
+        <input type="text" name="fosInput" value="" style="display:none;" class="fosInput" onKeyDown="if(event.keyCode==13) setit(1,$('.fos'),$('.fosInput'))" size="30">
+        <span class="edit editFos" onclick="editor($('.fos'),$('.fosInput'))">Edit</span>
+      </div>
+      <div class="fieldSpan" onmouseout="$('.editHor').css('display','none')" onmouseover="$('.editHor').css('display','inline')">
+        <span class="field" title="Hostel/Hall">Hall of Residence : </span>
+        <span class="hor"></span>
+        <input type="text" name="horInput" value="" style="display:none;" class="horInput">
+        <span class="edit editHor" onclick="editor($('.hor'),$('.horInput'))">Edit</span>
+      </div>
+      <div class="fieldSpan" onmouseout="$('.editRoom').css('display','none')" onmouseover="$('.editRoom').css('display','inline')">
+        <span class="field">Room Number : </span>
+        <span class="room"></span>
+        <input type="text" name="roomInput" value="" style="display:none;" class="roomInput">
+        <span class="edit editRoom" onclick="editor($('.room'),$('.roomInput'))">Edit</span>
+      </div>
+      <div class="fieldSpan" onmouseout="$('.editFrom').css('display','none')" onmouseover="$('.editFrom').css('display','inline')">
+        <span class="field">From : </span>
+        <span class="from"></span>
+        <input type="text" name="fromInput" value="" style="display:none;" class="fromInput">
+        <span class="edit editFrom" onclick="editor($('.from'),$('.fromInput'))">Edit</span>
+      </div>
+      <div class="fieldSpan" onmouseout="$('.editContact').css('display','none')" onmouseover="$('.editContact').css('display','inline')">
+        <span class="field">Contact : </span>
+        <span class="contact"></span>
+        <input type="text" name="contactInput" value="" style="display:none;" class="contactInput">
+        <span class="edit editContact" onclick="editor($('.contact'),$('.contactInput'))">Edit</span>
+      </div>
+    </div>
+  </div>
+  <div class="container2 skc" style="display:none">
+    <span class="tabDisplayHeading">Skills</span><br><br>
+    <div class="fields">
+      <div class="fieldSpan" onmouseout="$('.editSkills').css('display','none')" onmouseover="$('.editSkills').css('display','inline')">
+        <span class="field"></span>
+        <span class="skills"></span>
+        <input type="text" name="skillInput" value="" style="display:none;" class="skillInput">
+        <span class="edit editSkills" onclick="editor($('.skills'),$('.skillInput'))">Edit</span>
+      </div>
+    </div>
+  </div>
+  <div class="container2 iic" style="display:none">
+    <span class="tabDisplayHeading">Projects</span><br><br>
+    <div class="fields">
+      <div class="fieldSpan" onmouseout="$('.editProjects').css('display','none')" onmouseover="$('.editProjects').css('display','inline')">
+        <span class="field"></span>
+        <span class="projects"></span>
+        <input type="text" name="projectInput" value="" style="display:none;" class="projectInput">
+        <span class="edit editProjects" onclick="editor($('.projects'),$('.projectInput'))">Edit</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="searchBox">
+  <input type="text" name="" value="" placeholder="Search People ..." >
+  <button type="button" name="button">Go</button>
+</div>
+
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var tab = 1;
+    $('.gi').click(function(){
+      if(tab!=1){
+        tab = 1;
+        $('.clicked').removeClass('clicked');
+        $('.container2').fadeOut(0,function(){
+          $('.gic').fadeIn(0);
+          $('.gi').addClass('clicked');
+        });
+      }
+    });
+
+    $('.ii').click(function(){
+      if(tab!=2){
+        tab = 2;
+        $('.clicked').removeClass('clicked');
+        $('.container2').fadeOut(0,function(){
+          $('.iic').fadeIn(0);
+          $('.ii').addClass('clicked');
+        });
+      }
+    });
+
+    $('.sk').click(function(){
+      if(tab!=3){
+        tab = 3;
+        $('.clicked').removeClass('clicked');
+        $('.container2').fadeOut(0,function(){
+          $('.skc').fadeIn(0);
+          $('.sk').addClass('clicked');
+        });
+      }
+    });
+
+    $('.lo').click(function(){
+      logout();
+    });
+
+    $.post("/accountPageData",
+    {
+      email : readCookie('usr_mail')
+    },
+  function( data , status){
+    if(status == 'success'){
+      var now = new Date();
+      var start = new Date(data.year, data.month, data.day);
+      var diff = now - start;
+      var oneYear = 1000 * 60 * 60 * 24 * 365;
+      var year = Math.floor(diff / oneYear);
+      $('.userAge').html(year);
+      $('.fos').html(data.fos);
+      $('.hor').html(data.hor);
+      $('.room').html(data.room);
+      $('.from').html(data.home);
+      $('.contact').html(data.contact);
+      $('.skills').html(data.skills);
+      $('.projects').html(data.projects);
+      $.post("/getcollege",{
+        collegeid : data.college
+      },function(data,status){
+        if(status == 'success'){
+          $('.currentSchool').html(data.cname);
+        }else{}
+      })
+      var x = document.getElementsByClassName('profilePicImg');
+      x[0].setAttribute('src','/profilePics/' + data.id + '.jpg');
+      $(".profilePicImg")
+      .on('load', function() { console.log("image loaded correctly"); })
+      .on('error', function() {
+        console.log("error loading image");
+        if(data.gender == 1) x[0].setAttribute('src','/images/default_male.png');
+        else x[0].setAttribute('src','/images/default_female.png');
+      });
+
+      $('.name1').html(data.fname + ' ' + data.lname);
+    }
+    else {}// function to be written
+  });
+  });
+  function editor(a, b){
+    b.val(a.html());
+    a.css('display','none');
+    b.css('display','inline');
+  }
+  function setit(i,a,b){
+    a.html(b.val());
+    b.css('display','none');
+    a.css('display','inline');
+  }
+</script>
